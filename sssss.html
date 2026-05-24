@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Волейбольный клуб «Шторм» | официальный сайт</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+background: #f5faff;
+color: #0a2f44;
+line-height: 1.45;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 24px;
+}
+
+header {
+background: linear-gradient(100deg, #0b2f4e 0%, #1976a5 100%);
+color: white;
+padding: 18px 0;
+position: sticky;
+top: 0;
+z-index: 100;
+box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.header-flex {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+}
+
+.logo h1 {
+font-size: 26px;
+letter-spacing: 1px;
+}
+
+.logo p {
+font-size: 12px;
+opacity: 0.85;
+}
+
+.nav-links {
+display: flex;
+gap: 26px;
+list-style: none;
+}
+
+.nav-links a {
+color: white;
+text-decoration: none;
+font-weight: 600;
+transition: 0.2s;
+padding-bottom: 4px;
+border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+border-bottom-color: #7bc9f0;
+}
+
+.burger {
+display: none;
+background: none;
+border: none;
+font-size: 28px;
+color: white;
+cursor: pointer;
+}
+
+section {
+padding: 70px 0;
+border-bottom: 1px solid #d4e5f0;
+}
+
+.section-title {
+text-align: center;
+font-size: 34px;
+color: #0a3b5c;
+margin-bottom: 45px;
+}
+
+.section-title::after {
+content: '';
+display: block;
+width: 80px;
+height: 3px;
+background: #3799c4;
+margin: 12px auto 0;
+border-radius: 4px;
+}
+
+.btn {
+background: #1976a5;
+color: white;
+padding: 10px 26px;
+border-radius: 40px;
+border: none;
+font-weight: bold;
+cursor: pointer;
+transition: 0.2s;
+text-decoration: none;
+display: inline-block;
+font-size: 15px;
+}
+
+.btn-outline {
+background: transparent;
+border: 2px solid #1976a5;
+color: #1976a5;
+}
+
+.btn-outline:hover {
+background: #e1f0fa;
+}
+
+.btn:hover {
+background: #0f5479;
+transform: scale(0.97);
+}
+
+.hero {
+background: linear-gradient(115deg, #cbe5fe 0%, #e5f2fc 100%);
+text-align: center;
+padding: 80px 20px;
+}
+
+.hero h2 {
+font-size: 44px;
+color: #05445e;
+}
+
+.hero p {
+font-size: 18px;
+max-width: 650px;
+margin: 20px auto;
+color: #1f5e7e;
+}
+
+.coaches-grid {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 35px;
+}
+
+.coach-card {
+background: white;
+border-radius: 32px;
+width: 260px;
+text-align: center;
+padding: 24px 16px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+transition: 0.2s;
+cursor: pointer;
+}
+
+.coach-card:hover {
+transform: translateY(-6px);
+box-shadow: 0 18px 30px rgba(0,0,0,0.1);
+}
+
+.coach-photo {
+width: 130px;
+height: 130px;
+border-radius: 50%;
+object-fit: cover;
+margin-bottom: 16px;
+border: 3px solid #b5d8f0;
+}
+
+.coach-name {
+font-size: 22px;
+font-weight: 700;
+color: #05445e;
+}
+
+.coach-post {
+color: #287b9e;
+margin: 6px 0;
+}
+
+.detail-btn {
+margin-top: 14px;
+background: #eef4fc;
+border: none;
+padding: 6px 18px;
+border-radius: 60px;
+font-weight: 600;
+cursor: pointer;
+}
+
+.best-grid {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 30px;
+}
+
+.best-card {
+background: white;
+border-radius: 28px;
+width: 240px;
+text-align: center;
+padding: 22px 16px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+transition: 0.2s;
+}
+
+.best-card:hover {
+transform: translateY(-5px);
+}
+
+.best-photo {
+width: 140px;
+height: 140px;
+border-radius: 50%;
+object-fit: cover;
+margin-bottom: 15px;
+border: 3px solid #ffc107;
+}
+
+.best-name {
+font-size: 22px;
+font-weight: 700;
+color: #05445e;
+}
+
+.best-achievement {
+color: #e67e22;
+font-weight: 600;
+margin: 8px 0;
+}
+
+.schedule-card {
+background: white;
+border-radius: 28px;
+overflow-x: auto;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th, td {
+padding: 14px 12px;
+text-align: left;
+border-bottom: 1px solid #d4e3ef;
+}
+
+th {
+background: #e3f0f9;
+color: #05445e;
+}
+
+.ticket-btn-sm {
+background: #ecf5fc;
+border: none;
+padding: 6px 16px;
+border-radius: 30px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.news-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 25px;
+}
+
+.news-card {
+background: white;
+border-radius: 28px;
+padding: 20px;
+}
+
+.gallery-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 20px;
+}
+
+.gallery-img {
+width: 100%;
+height: 190px;
+object-fit: cover;
+border-radius: 24px;
+cursor: pointer;
+}
+
+.two-columns {
+display: flex;
+flex-wrap: wrap;
+gap: 40px;
+justify-content: space-between;
+}
+
+.form-card, .ticket-card {
+flex: 1;
+background: white;
+border-radius: 32px;
+padding: 28px 24px;
+}
+
+input, select {
+width: 100%;
+padding: 12px;
+margin: 10px 0 20px;
+border-radius: 60px;
+border: 1px solid #c5dbeb;
+font-size: 15px;
+}
+
+.socials {
+display: flex;
+justify-content: center;
+gap: 35px;
+margin: 20px 0;
+}
+
+.social-icon {
+font-size: 32px;
+text-decoration: none;
+background: #eef2f9;
+width: 55px;
+height: 55px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+transition: 0.2s;
+cursor: pointer;
+}
+
+footer {
+background: #0a2f44;
+color: white;
+text-align: center;
+padding: 30px;
+}
+
+.modal {
+display: none;
+position: fixed;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background: rgba(0,0,0,0.6);
+align-items: center;
+justify-content: center;
+z-index: 1000;
+}
+
+.modal-content {
+background: white;
+max-width: 480px;
+width: 90%;
+padding: 32px;
+border-radius: 40px;
+text-align: center;
+box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+}
+
+.modal-content h3 {
+color: #05445e;
+font-size: 28px;
+margin-bottom: 16px;
+}
+
+.modal-content p {
+color: #2c5a74;
+line-height: 1.5;
+margin-bottom: 24px;
+}
+
+.close-modal {
+background: #1976a5;
+border: none;
+padding: 10px 28px;
+border-radius: 40px;
+color: white;
+font-weight: bold;
+cursor: pointer;
+}
+
+@media (max-width: 750px) {
+.burger {
+display: block;
+}
+.nav-links {
+display: none;
+width: 100%;
+flex-direction: column;
+background: #1976a5;
+padding: 20px;
+border-radius: 32px;
+margin-top: 18px;
+text-align: center;
+gap: 12px;
+}
+.nav-links.show {
+display: flex;
+}
+.hero h2 {
+font-size: 30px;
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container header-flex">
+<div class="logo">
+<h1>🏐 ВК «ШТОРМ»</h1>
+<p>официальный сайт</p>
+</div>
+<button class="burger" id="burgerBtn">☰</button>
+<ul class="nav-links" id="navMenu">
+<li><a href="#home">Главная</a></li>
+<li><a href="#coaches">Тренеры</a></li>
+<li><a href="#best">Лучшие игроки</a></li>
+<li><a href="#schedule">Расписание</a></li>
+<li><a href="#news">Новости</a></li>
+<li><a href="#gallery">Галерея</a></li>
+<li><a href="#signup">Запись</a></li>
+</ul>
+</div>
+</header>
+
+<main>
+<section id="home" class="hero">
+<div class="container">
+<h2>Сила стихии — в команде</h2>
+<p>Волейбольный клуб «Шторм»: характер, победы и верные болельщики. Присоединяйся!</p>
+<a href="#signup" class="btn">✍️ Записаться на тренировку</a>
+<a href="#schedule" class="btn btn-outline" style="margin-left: 14px;">📅 Билеты на матчи</a>
+</div>
+</section>
+
+<!-- ТРЕНЕРСКИЙ ШТАБ -->
+<section id="coaches">
+<div class="container">
+<h2 class="section-title">Тренерский штаб</h2>
+<div class="coaches-grid">
+<div class="coach-card" onclick="openModal('coachModal', 'Алексей Громов', '🏆 Заслуженный тренер России, стаж 14 лет. Под его руководством команда выиграла Кубок области 2023 и 2024. Специализация: тактика и атака.')">
+<img class="coach-photo" src="https://avatars.mds.yandex.net/i?id=f2618528fd02b4e0b3158274eb50d8c0_l-8199407-images-thumbs&n=13" alt="тренер Алексей Громов">
+<div class="coach-name">Алексей Громов</div>
+<div class="coach-post">Главный тренер</div>
+<button class="detail-btn" onclick="event.stopPropagation(); openModal('coachModal', 'Алексей Громов', '🏆 Заслуженный тренер России, стаж 14 лет. Под его руководством команда выиграла Кубок области 2023 и 2024.')">Подробнее →</button>
+</div>
+<div class="coach-card" onclick="openModal('coachModal', 'Антон Морозов', '💪 Мастер спорта, тренер по физической подготовке. Работал с юниорской сборной. Отвечает за скорость реакции и прыжковую выносливость.')">
+<img class="coach-photo" src="https://avatars.mds.yandex.net/i?id=2b304aff7ac2a7470d77687737ee1984_l-10350562-images-thumbs&n=13" alt="тренер Антон Морозов">
+<div class="coach-name">Антон Морозов</div>
+<div class="coach-post">Тренер по ОФП</div>
+<button class="detail-btn" onclick="event.stopPropagation(); openModal('coachModal', 'Антон Морозов', '💪 Мастер спорта, тренер по физической подготовке. Работал с юниорской сборной.')">Подробнее →</button>
+</div>
+<div class="coach-card" onclick="openModal('coachModal', 'Денис Волков', '🛡️ Специалист по работе с либеро и защите. Экс-игрок суперлиги. Обучает технике приема и блоку.')">
+<img class="coach-photo" src="https://avatars.mds.yandex.net/i?id=89b9412a1cf6a79fdeb9c577abd14f17_l-8253954-images-thumbs&n=13" alt="тренер Денис Волков">
+<div class="coach-name">Денис Волков</div>
+<div class="coach-post">Тренер защиты</div>
+<button class="detail-btn" onclick="event.stopPropagation(); openModal('coachModal', 'Денис Волков', '🛡️ Специалист по работе с либеро и защите. Экс-игрок суперлиги.')">Подробнее →</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ЛУЧШИЕ ИГРОКИ СЕЗОНА -->
+<section id="best">
+<div class="container">
+<h2 class="section-title">Лучшие игроки сезона</h2>
+<div class="best-grid">
+<div class="best-card">
+<img class="best-photo" src="https://avatars.mds.yandex.net/i?id=9da2db9b8c4710dba3bb986c552bf0e5_l-5263756-images-thumbs&n=33&w=1688&h=1125" alt="Илья Соколов">
+<div class="best-name">Илья Соколов</div>
+<div class="best-achievement">⭐ Лучший бомбардир (287 очков)</div>
+<button class="detail-btn" onclick="openModal('simpleModal', 'Илья Соколов', 'Диагональный, капитан команды. За сезон набрал 287 очков, из них 45 эйсов.')">Достижения</button>
+</div>
+<div class="best-card">
+<img class="best-photo" src="https://cdn.sovsport.prod.plat.agency/Grankin_Socseti11_8aefac2728.webp" alt="Дмитрий Кузнецов">
+<div class="best-name">Дмитрий Кузнецов</div>
+<div class="best-achievement">🎯 Лучший связующий (412 передач)</div>
+<button class="detail-btn" onclick="openModal('simpleModal', 'Дмитрий Кузнецов', 'Связующий с лучшим показателем точности передач — 89%. Входит в топ-3 ассистентов лиги.')">Достижения</button>
+</div>
+<div class="best-card">
+<img class="best-photo" src="https://avatars.mds.yandex.net/i?id=a10a81d004d1027cf9772ba572fe5012_l-16513077-images-thumbs&n=13" alt="Максим Белов">
+<div class="best-name">Максим Белов</div>
+<div class="best-achievement">🛡️ Лучший защитник (92% приема)</div>
+<button class="detail-btn" onclick="openModal('simpleModal', 'Максим Белов', 'Либеро с феноменальным процентом приема — 92%. Лучший показатель в лиге.')">Достижения</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- РАСПИСАНИЕ -->
+<section id="schedule">
+<div class="container">
+<h2 class="section-title">Ближайшие игры</h2>
+<div class="schedule-card">
+<table>
+<thead><tr><th>Дата</th><th>Соперник</th><th>Место</th><th>Билет</th></thead>
+<tbody>
+<tr><td>2 июня 19:00</td><td>ВК «Гроза</td><td>ДС «Олимп</td><td><button class="ticket-btn-sm" onclick="openModal('ticketModal', 'Билет на матч 2 июня', 'Стоимость: 350₽. Детям до 12 лет — 150₽. Билет в кассе стадиона.')">Купить</button></td></tr>
+<tr><td>10 июня 17:30</td><td>ВК «Динамо</td><td>Арена «Север</td><td><button class="ticket-btn-sm" onclick="openModal('ticketModal', 'Билет на матч 10 июня', 'Стоимость: 400₽. Льготный билет: 200₽.')">Купить</button></td></tr>
+<tr><td>18 июня 18:00</td><td>ВК «Вымпел</td><td>ДС «Олимп</td><td><button class="ticket-btn-sm" onclick="openModal('ticketModal', 'Билет на матч 18 июня', 'Стоимость: 300₽. Абонемент на 3 игры — 800₽.')">Купить</button></td></tr>
+</tbody>
+</table>
+</div>
+<div style="margin-top: 28px; text-align:center"><button class="btn" onclick="openModal('ticketModal', 'Абонемент на сезон', 'Абонемент на 3 домашние игры — 800₽. Дает право на посещение всех матчей сезона.')">🎫 Купить абонемент</button></div>
+</div>
+</section>
+
+<!-- НОВОСТИ -->
+<section id="news">
+<div class="container">
+<h2 class="section-title">Новости клуба</h2>
+<div class="news-grid">
+<div class="news-card"><h3>🏆 Победа в турнире «Волга-2025</h3><p>Команда «Шторм» обыграла соперников в финале 3:1.</p><button class="detail-btn" onclick="openModal('newsModal', 'Победа в турнире «Волга-2025»', 'В захватывающем финале наша команда одержала победу над ВК «Динамо» со счётом 3:1. Лучший игрок — Илья Соколов.')">Подробнее</button></div>
+<div class="news-card"><h3>✨ Набор в детскую группу</h3><p>Открыт набор детей 8-13 лет. Тренировки 2 раза в неделю.</p><button class="detail-btn" onclick="openModal('newsModal', 'Набор в детскую группу', 'Приглашаем детей от 8 до 13 лет в секцию волейбола. Первое занятие — бесплатно! Запись по телефону.')">Подробнее</button></div>
+<div class="news-card"><h3>📸 Фотоотчет с матча</h3><p>Новые фото в галерее, моменты атаки и поддержка трибун.</p><button class="detail-btn" onclick="openModal('newsModal', 'Фотоотчет с матча', 'В разделе «Галерея» уже доступны свежие фотографии с домашней игры против ВК «Гроза».')">Подробнее</button></div>
+</div>
+</div>
+</section>
+
+<!-- ФОТОГАЛЕРЕЯ -->
+<section id="gallery">
+<div class="container">
+<h2 class="section-title">Фотогалерея</h2>
+<div class="gallery-grid">
+<img class="gallery-img" src="https://avatars.mds.yandex.net/i?id=7c96fac9e0911b506f31ef10cc518d74_l-5869158-images-thumbs&n=13" onclick="openModal('imageModal', 'Момент матча', 'Волейбольная атака в матче против ВК «Гроза»')" alt="галерея 1">
+<img class="gallery-img" src="https://avatars.mds.yandex.net/i?id=16dd5a58915be6dac83ddc113c1134eb_l-6275626-images-thumbs&n=13" onclick="openModal('imageModal', 'Команда в игре', 'Напряженный момент матча')" alt="галерея 2">
+<img class="gallery-img" src="https://avatars.mds.yandex.net/i?id=48dca80789c0144585e308a08f1afa8d_l-5231779-images-thumbs&ref=rim&n=13&w=600&h=400" onclick="openModal('imageModal', 'Подача', 'Мощная подача Ильи Соколова')" alt="галерея 3">
+<img class="gallery-img" src="https://avatars.mds.yandex.net/i?id=ec97669bac38a772643d05a253ddc3b5_l-8312133-images-thumbs&ref=rim&n=13&w=1920&h=1081" onclick="openModal('imageModal', 'Победа!', 'Команда празднует победу в турнире')" alt="галерея 4">
+</div>
+</div>
+</section>
+
+<!-- ЗАПИСЬ И БИЛЕТЫ -->
+<section id="signup">
+<div class="container two-columns">
+<div class="form-card">
+<h3>📝 Запись на тренировку</h3>
+<input type="text" placeholder="Ваше имя" id="nameInput">
+<input type="tel" placeholder="Телефон" id="phoneInput">
+<input type="date" id="dateInput">
+<button class="btn" onclick="let name=document.getElementById('nameInput').value; if(name) openModal('simpleModal', 'Заявка принята!', `${name}, спасибо за запись! Тренер свяжется с вами в течение дня.`); else openModal('simpleModal', 'Ошибка', 'Пожалуйста, введите ваше имя')">Отправить заявку</button>
+</div>
+<div class="ticket-card">
+<h3>🎟 Купить билет на матч</h3>
+<select id="matchSelect">
+<option>2 июня — ВК «Гроза</option>
+<option>10 июня — ВК «Динамо</option>
+<option>18 июня — ВК «Вымпел</option>
+</select>
+<button class="btn" onclick="let sel=document.getElementById('matchSelect').value; openModal('ticketModal', 'Билет забронирован', `Билет на матч ${sel} зарезервирован. Оплата при входе в кассу.`)">Забронировать</button>
+</div>
+</div>
+</section>
+
+<!-- СОЦСЕТИ -->
+<section style="padding: 40px 0;">
+<div class="container" style="text-align: center;">
+<h3 style="font-size: 28px;">Мы в соцсетях</h3>
+<div class="socials">
+<div class="social-icon" onclick="openModal('simpleModal', 'Telegram', 'Присоединяйтесь: t.me/vk_shtorm')">📱</div>
+<div class="social-icon" onclick="openModal('simpleModal', 'ВКонтакте', 'Подписывайтесь: vk.com/volley_shtorm')">📘</div>
+<div class="social-icon" onclick="openModal('simpleModal', 'YouTube', 'Смотрите обзоры: youtube.com/@shtorm')">▶️</div>
+<div class="social-icon" onclick="openModal('simpleModal', 'Instagram', '@shtorm_volley')">📷</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<p>🏐 Волейбольный клуб «Шторм» | Санкт-Петербург, ул. Спортивная 10 | +7 (812) 456-78-90</p>
+<p style="margin-top: 8px;">© 2025 Учебный проект колледжа</p>
+</footer>
+
+<!-- МОДАЛЬНЫЕ ОКНА -->
+<div id="coachModal" class="modal"><div class="modal-content"><h3 id="coachModalTitle"></h3><p id="coachModalText"></p><button class="close-modal" onclick="closeModal('coachModal')">Закрыть</button></div></div>
+<div id="newsModal" class="modal"><div class="modal-content"><h3 id="newsModalTitle"></h3><p id="newsModalText"></p><button class="close-modal" onclick="closeModal('newsModal')">Закрыть</button></div></div>
+<div id="ticketModal" class="modal"><div class="modal-content"><h3 id="ticketModalTitle"></h3><p id="ticketModalText"></p><button class="close-modal" onclick="closeModal('ticketModal')">Закрыть</button></div></div>
+<div id="simpleModal" class="modal"><div class="modal-content"><h3 id="simpleModalTitle"></h3><p id="simpleModalText"></p><button class="close-modal" onclick="closeModal('simpleModal')">Закрыть</button></div></div>
+<div id="imageModal" class="modal"><div class="modal-content"><h3 id="imageModalTitle"></h3><p id="imageModalText"></p><button class="close-modal" onclick="closeModal('imageModal')">Закрыть</button></div></div>
+
+<script>
+const burger = document.getElementById('burgerBtn');
+const nav = document.getElementById('navMenu');
+if(burger) burger.addEventListener('click', () => nav.classList.toggle('show'));
+
+function openModal(modalId, title, text) {
+const modal = document.getElementById(modalId);
+if(modalId === 'coachModal') {
+document.getElementById('coachModalTitle').innerText = title;
+document.getElementById('coachModalText').innerText = text;
+} else if(modalId === 'newsModal') {
+document.getElementById('newsModalTitle').innerText = title;
+document.getElementById('newsModalText').innerText = text;
+} else if(modalId === 'ticketModal') {
+document.getElementById('ticketModalTitle').innerText = title;
+document.getElementById('ticketModalText').innerText = text;
+} else if(modalId === 'simpleModal') {
+document.getElementById('simpleModalTitle').innerText = title;
+document.getElementById('simpleModalText').innerText = text;
+} else if(modalId === 'imageModal') {
+document.getElementById('imageModalTitle').innerText = title;
+document.getElementById('imageModalText').innerText = text;
+}
+modal.style.display = 'flex';
+}
+
+function closeModal(modalId) {
+document.getElementById(modalId).style.display = 'none';
+}
+
+window.onclick = function(e) {
+if(e.target.classList && e.target.classList.contains('modal')) {
+e.target.style.display = 'none';
+}
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+const target = document.querySelector(this.getAttribute('href'));
+if(target) {
+e.preventDefault();
+target.scrollIntoView({ behavior: 'smooth' });
+if(nav && nav.classList.contains('show')) nav.classList.remove('show');
+}
+});
+});
+</script>
+</body>
+</html>
